@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Product Details - OurStore</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header class="bg-white border-bottom">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-2" aria-label="Main">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center gap-2" href="index.html#home">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="fw-bold">OurStore</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+            <ul class="navbar-nav align-items-lg-center mb-2 mb-lg-0 gap-3">
+              <li class="nav-item"><a class="nav-link px-2" href="index.html#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link px-2" href="index.html#products">Products</a></li>
+              <li class="nav-item"><a class="nav-link px-2" href="index.html#categories">Categories</a></li>
+              <li class="nav-item"><a class="nav-link px-2" href="index.html#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="d-none d-lg-flex align-items-center gap-3 ms-auto">
+            <i class="fas fa-search" role="button" aria-label="Toggle search"></i>
+            <i class="fas fa-user" role="button" title="Account"></i>
+            <span class="position-relative d-inline-flex align-items-center" role="button" aria-label="Open cart">
+              <i class="fas fa-shopping-cart"></i>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="product-details py-5">
+        <div class="container">
+          <div id="productDetails" class="row g-4" aria-live="polite" aria-busy="true">
+            <!-- Product details will be loaded here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer mt-5 pt-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <a
+              class="navbar-brand d-inline-flex align-items-center gap-2 mb-2"
+              href="#home"
+            >
+              <i class="fas fa-shopping-bag"></i>
+              <span class="fw-bold">OurStore</span>
+            </a>
+            <p class="text-muted mb-3">
+              Great products, better prices. Fast and secure delivery
+              nationwide.
+            </p>
+            <div class="d-flex align-items-center gap-3">
+              <a class="text-muted" href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter fa-lg"></i
+              ></a>
+              <a class="text-muted" href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a class="text-muted" href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="fw-bold mb-3">Shop</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#products">All Products</a></li>
+              <li><a href="#categories">Categories</a></li>
+              <li><a href="#home">Deals</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="fw-bold mb-3">Support</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Returns</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-4">
+            <h6 class="fw-bold mb-3">Stay up to date</h6>
+            <form
+              class="footer-newsletter d-flex gap-2"
+              onsubmit="event.preventDefault();"
+            >
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+                aria-label="Email"
+                required
+              />
+              <button class="btn btn-dark" type="submit">Subscribe</button>
+            </form>
+            <small class="text-muted d-block mt-2"
+              >We care about your data in our
+              <a href="#" class="link-underline-opacity-0">privacy policy</a
+              >.</small
+            >
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="d-flex align-items-center justify-content-center py-3">
+          <small class="text-muted"
+            >© 2025 OurStore. All rights reserved.</small
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/product-details.js"></script>
+  </body>
+</html>
