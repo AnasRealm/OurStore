@@ -65,7 +65,10 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link px-2" href="index.html#contact">Contact</a>
+                <a class="nav-link px-2" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-2" href="contact.html">Contact</a>
               </li>
             </ul>
           </div>
@@ -80,8 +83,21 @@
               class="position-relative d-inline-flex align-items-center"
               role="button"
               aria-label="Open cart"
+              id="cartIcon"
             >
               <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cartCount" style="display: none;">0</span>
+            </span>
+          </div>
+          <!-- Mobile cart icon -->
+          <div class="d-lg-none">
+            <span
+              class="position-relative d-inline-flex align-items-center cart-icon"
+              role="button"
+              aria-label="Open cart"
+            >
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" style="display: none;">0</span>
             </span>
           </div>
         </div>
@@ -220,10 +236,37 @@
       </div>
     </footer>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+          <h3>Shopping Cart</h3>
+          <button class="cart-close" id="cartClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+          <div class="cart-empty" id="cartEmpty">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Your cart is empty</p>
+          </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="cart-checkout">Checkout</button>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/cart.js"></script>
+    <script src="./assets/main.js"></script>
     <script src="./assets/products.js"></script>
   </body>
 </html>

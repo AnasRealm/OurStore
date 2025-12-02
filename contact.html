@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contact Us - OurStore</title>
+
+    <!-- Fonts & icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- main styles -->
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <header class="bg-white border-bottom">
+      <nav
+        class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-4"
+        id="navbar"
+        aria-label="Main"
+      >
+        <div class="container">
+          <!-- Left: Brand -->
+          <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="fw-bold">OurStore</span>
+          </a>
+
+          <!-- Toggler -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav"
+            aria-controls="mainNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Center: Links -->
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="mainNav"
+          >
+            <ul class="navbar-nav align-items-lg-center mb-2 mb-lg-0 gap-3">
+              <li class="nav-item">
+                <a class="nav-link px-2" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-2" href="products.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-2" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-2 active" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right: Icons -->
+          <div class="d-none d-lg-flex align-items-center gap-4 ms-auto">
+            <i class="fas fa-search" role="button" aria-label="Search"></i>
+            <i class="fas fa-user" role="button" title="Account"></i>
+            <span class="position-relative d-inline-flex align-items-center" role="button" id="cartIcon">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cartCount" style="display: none;">0</span>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Contact Hero -->
+      <section class="contact-hero py-5">
+        <div class="container">
+          <div class="text-center mb-5">
+            <span class="contact-badge">📞 Get in Touch</span>
+            <h1 class="contact-title">We'd Love to Hear From You</h1>
+            <p class="contact-description">
+              Have questions? We're here to help. Send us a message and we'll respond as soon as possible.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Content -->
+      <section class="contact-content py-5">
+        <div class="container">
+          <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+              <div class="contact-form-wrapper">
+                <h3 class="mb-4">Send us a Message</h3>
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" class="form-control" id="firstName" required>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="lastName" class="form-label">Last Name</label>
+                      <input type="text" class="form-control" id="lastName" required>
+                    </div>
+                    <div class="col-12">
+                      <label for="email" class="form-label">Email Address</label>
+                      <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="col-12">
+                      <label for="subject" class="form-label">Subject</label>
+                      <select class="form-select" id="subject" required>
+                        <option value="">Choose a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="support">Customer Support</option>
+                        <option value="order">Order Issue</option>
+                        <option value="partnership">Partnership</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="message" class="form-label">Message</label>
+                      <textarea class="form-control" id="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-dark btn-lg">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Send Message
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-4">
+              <div class="contact-info">
+                <h3 class="mb-4">Contact Information</h3>
+                
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Address</h5>
+                    <p>123 Business Street<br>City, State 12345<br>United States</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Phone</h5>
+                    <p>+1 (555) 123-4567</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Email</h5>
+                    <p>info@ourstore.com<br>support@ourstore.com</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h5>Business Hours</h5>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 4:00 PM<br>Sunday: Closed</p>
+                  </div>
+                </div>
+
+                <div class="contact-social mt-4">
+                  <h5 class="mb-3">Follow Us</h5>
+                  <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="contact-faq py-5 bg-light">
+        <div class="container">
+          <div class="text-center mb-5">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Quick answers to common questions</p>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                      How long does shipping take?
+                    </button>
+                  </h2>
+                  <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      Standard shipping takes 3-5 business days. Express shipping is available for 1-2 business days delivery.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                      What is your return policy?
+                    </button>
+                  </h2>
+                  <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      We offer a 30-day return policy for all items in original condition. Returns are free and easy.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                      Do you offer international shipping?
+                    </button>
+                  </h2>
+                  <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                      Yes, we ship to over 50 countries worldwide. International shipping rates vary by location.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer mt-5 pt-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-lg-4">
+            <a
+              class="navbar-brand d-inline-flex align-items-center gap-2 mb-2"
+              href="index.html"
+            >
+              <i class="fas fa-shopping-bag"></i>
+              <span class="fw-bold">OurStore</span>
+            </a>
+            <p class="text-muted mb-3">
+              Great products, better prices. Fast and secure delivery nationwide.
+            </p>
+            <div class="d-flex align-items-center gap-3">
+              <a class="text-muted" href="#" aria-label="Twitter">
+                <i class="fab fa-twitter fa-lg"></i>
+              </a>
+              <a class="text-muted" href="#" aria-label="Instagram">
+                <i class="fab fa-instagram fa-lg"></i>
+              </a>
+              <a class="text-muted" href="#" aria-label="Facebook">
+                <i class="fab fa-facebook fa-lg"></i>
+              </a>
+            </div>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="fw-bold mb-3">Shop</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="products.html">All Products</a></li>
+              <li><a href="#categories">Categories</a></li>
+              <li><a href="#home">Deals</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h6 class="fw-bold mb-3">Support</h6>
+            <ul class="list-unstyled footer-links">
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Returns</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-4">
+            <h6 class="fw-bold mb-3">Stay up to date</h6>
+            <form
+              class="footer-newsletter d-flex gap-2"
+              onsubmit="event.preventDefault();"
+            >
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your email"
+                aria-label="Email"
+                required
+              />
+              <button class="btn btn-dark" type="submit">Subscribe</button>
+            </form>
+            <small class="text-muted d-block mt-2">
+              We care about your data in our
+              <a href="#" class="link-underline-opacity-0">privacy policy</a>.
+            </small>
+          </div>
+        </div>
+
+        <hr class="my-4" />
+
+        <div class="d-flex align-items-center justify-content-center py-3">
+          <small class="text-muted">© 2025 OurStore. All rights reserved.</small>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay">
+      <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+          <h3>Shopping Cart</h3>
+          <button class="cart-close" id="cartClose">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="cart-body" id="cartBody">
+          <div class="cart-empty" id="cartEmpty">
+            <i class="fas fa-shopping-cart"></i>
+            <p>Your cart is empty</p>
+          </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="cart-checkout" onclick="checkout()">
+            <i class="fas fa-credit-card me-2"></i>
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/main.js"></script>
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        
+        // Get form data
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Simple validation
+        if (!firstName || !lastName || !email || !subject || !message) {
+          alert('Please fill in all fields');
+          return;
+        }
+        
+        // Show success message
+        alert('Thank you for your message! We will get back to you soon.');
+        
+        // Reset form
+        document.querySelector('.contact-form').reset();
+      }
+    </script>
+  </body>
+</html>

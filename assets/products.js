@@ -5,14 +5,10 @@
 
   const limit = 24;
   let total = 0;
-  let query = "";
   let loading = false;
   let currentPage = 1;
   let totalPages = 1;
-
-  let filters = {
-    category: "",
-  };
+  let filters = { category: "" };
 
   const toStars = (rating) => {
     const full = Math.round(rating);
@@ -22,36 +18,32 @@
   };
 
   function productCard(p) {
-    const thumb = (p.thumbnail || (p.images && p.images[0]) || "").replace(
-      /^http:/,
-      "https:"
-    );
+    const thumb = (p.thumbnail || (p.images && p.images[0]) || "").replace(/^http:/, "https:");
     return `
       <div class="col-12 col-sm-6 col-lg-3">
         <div class="product-card h-100">
           <div class="product-thumb">
             <img src="${thumb}" alt="${p.title}" />
             <span class="badge-float">${p.category || "Popular"}</span>
-            <a href="product-details.html?id=${
-              p.id
-            }" class="eye-btn" title="View Details">
+            <a href="product-details.html?id=${p.id}" class="eye-btn" title="View Details">
               <i class="fas fa-eye"></i>
             </a>
           </div>
           <div class="product-body">
-            <div class="product-title text-truncate" title="${p.title}">${
-      p.title
-    }</div>
+            <div class="product-title text-truncate" title="${p.title}">${p.title}</div>
             <div class="product-meta">
               <span class="price">$${Number(p.price).toFixed(2)}</span>
-              <span class="rating" aria-label="Rating ${p.rating}">${toStars(
-      p.rating
-    )}</span>
+              <span class="rating" aria-label="Rating ${p.rating}">${toStars(p.rating)}</span>
             </div>
             <div class="d-grid mt-3">
-              <button class="btn btn-dark btn-sm d-inline-flex align-items-center justify-content-center gap-2" type="button">
-                <i class="fas fa-cart-plus"></i>
-                <span>Add to cart</span>
+              <button class="btn btn-dark btn-sm btn-add-to-cart d-inline-flex align-items-center justify-content-center gap-2" type="button" onclick="addToCart(${p.id}, '${p.title.replace(/'/g, "\\'")}', ${p.price}, '${thumb}')">
+                <span class="btn-text">
+                  <i class="fas fa-cart-plus"></i>
+                  <span>Add to cart</span>
+                </span>
+                <span class="btn-loading">
+                  <i class="fas fa-spinner fa-spin"></i>
+                </span>
               </button>
             </div>
           </div>
@@ -61,9 +53,7 @@
 
   function buildPageLink(page, label = null, disabled = false, active = false) {
     const li = document.createElement("li");
-    li.className = `page-item${disabled ? " disabled" : ""}${
-      active ? " active" : ""
-    }`;
+    li.className = `page-item${disabled ? " disabled" : ""}${active ? " active" : ""}`;
     const a = document.createElement("a");
     a.className = "page-link";
     a.href = "#";
@@ -82,9 +72,7 @@
     pagination.innerHTML = "";
     if (totalPages <= 1) return;
 
-    pagination.appendChild(
-      buildPageLink(currentPage - 1, "Prev", currentPage === 1)
-    );
+    pagination.appendChild(buildPageLink(currentPage - 1, "Prev", currentPage === 1));
 
     const windowSize = 5;
     let start = Math.max(1, currentPage - Math.floor(windowSize / 2));
@@ -115,34 +103,34 @@
       pagination.appendChild(buildPageLink(totalPages));
     }
 
-    pagination.appendChild(
-      buildPageLink(currentPage + 1, "Next", currentPage === totalPages)
-    );
+    pagination.appendChild(buildPageLink(currentPage + 1, "Next", currentPage === totalPages));
   }
 
   async function fetchProductsPage() {
+    if (!grid) return;
+    
     loading = true;
     grid.setAttribute("aria-busy", "true");
 
-    let url = `https://dummyjson.com/products?limit=${limit}&skip=${
-      (currentPage - 1) * limit
-    }`;
+    try {
+      let url = `https://dummyjson.com/products?limit=${limit}&skip=${(currentPage - 1) * limit}`;
 
-    if (filters.category) {
-      url = `https://dummyjson.com/products/category/${
-        filters.category
-      }?limit=${limit}&skip=${(currentPage - 1) * limit}`;
+      if (filters.category) {
+        url = `https://dummyjson.com/products/category/${filters.category}?limit=${limit}&skip=${(currentPage - 1) * limit}`;
+      }
+
+      const res = await fetch(url);
+      const data = await res.json();
+      let items = data.products || [];
+
+      total = data.total ?? items.length;
+      totalPages = Math.max(1, Math.ceil(total / limit));
+
+      grid.innerHTML = items.map(productCard).join("");
+      renderPagination();
+    } catch (e) {
+      grid.innerHTML = '<div class="col-12"><div class="alert alert-warning">Failed to load products.</div></div>';
     }
-
-    const res = await fetch(url);
-    const data = await res.json();
-    let items = data.products || [];
-
-    total = filters.category ? items.length : data.total ?? items.length;
-    totalPages = Math.max(1, Math.ceil(total / limit));
-
-    grid.innerHTML = items.map(productCard).join("");
-    renderPagination();
 
     grid.setAttribute("aria-busy", "false");
     loading = false;

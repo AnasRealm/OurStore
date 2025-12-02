@@ -31,7 +31,7 @@
   <body>
     <header class="bg-white border-bottom">
       <nav
-        class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-2"
+        class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-4"
         id="navbar"
         aria-label="Main"
       >
@@ -71,7 +71,10 @@
                 <a class="nav-link px-2" href="#categories">Categories</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-2" href="#contact">Contact</a>
+                <a class="nav-link px-2" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link px-2" href="contact.html">Contact</a>
               </li>
               <!-- Icons inside collapse for small screens -->
               <li class="nav-item d-lg-none mt-2 pt-2 border-top">
@@ -80,23 +83,17 @@
                 >
                   <i
                     class="fas fa-search"
-                    id="searchIcon"
                     role="button"
                     aria-label="Toggle search"
                   ></i>
                   <i class="fas fa-user" title="Account"></i>
                   <span
-                    class="position-relative d-inline-flex align-items-center"
-                    id="cartIcon"
+                    class="position-relative d-inline-flex align-items-center cart-icon"
                     role="button"
                     aria-label="Open cart"
                   >
                     <i class="fas fa-shopping-cart"></i>
-                    <span
-                      class="position-absolute translate-middle badge rounded-pill bg-danger"
-                      style="top: -6px; right: -10px"
-                      >0</span
-                    >
+                    <span class="cart-count" style="display: none;">0</span>
                   </span>
                 </div>
               </li>
@@ -115,9 +112,10 @@
               class="position-relative d-inline-flex align-items-center"
               role="button"
               aria-label="Open cart"
+              id="cartIcon"
             >
               <i class="fas fa-shopping-cart"></i>
-              <!-- <span class="position-absolute translate-middle badge rounded-pill bg-danger" style="top:-6px; right:-10px; font-size: 10px;">0</span> -->
+              <span class="cart-count" id="cartCount" style="display: none;">0</span>
             </span>
           </div>
         </div>
@@ -217,6 +215,30 @@
       </section>
     </main>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+      <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <button class="cart-close" id="cartClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="cart-body" id="cartBody">
+        <div class="cart-empty" id="cartEmpty">
+          <i class="fas fa-shopping-cart"></i>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display: none;">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="cart-checkout">Checkout</button>
+      </div>
+    </div>
+
     <footer class="site-footer mt-5 pt-5">
       <div class="container">
         <div class="row g-4">
@@ -293,8 +315,6 @@
       </div>
     </footer>
 
-    <!-- <div class="cart-overlay" id="cartOverlay" hidden></div> -->
-
     <!-- Bootstrap 5 Bundle JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -302,6 +322,7 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="./assets/cart.js"></script>
     <script src="./assets/main.js"></script>
   </body>
 </html>
